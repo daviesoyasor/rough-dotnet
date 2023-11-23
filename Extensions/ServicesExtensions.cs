@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Polaris.Entities;
+using Polaris.External.API;
 using Polaris.Repositories;
 
 namespace Polaris.Extensions
@@ -16,7 +17,13 @@ namespace Polaris.Extensions
         {
             // Add services to the container.
             services.AddScoped<IRepository, UserRepository>();
+            services.AddScoped<IExternalAPI, XuperAuthService>();
+            
             services.AddControllers();
+            services.AddResponseCaching();
+            services.AddMemoryCache();
+            services.AddSingleton<IExternalAPI, XuperAuthService>();
+            services.AddHttpClient();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();

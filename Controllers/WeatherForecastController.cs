@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Polaris.Entities;
+using Polaris.External.API;
 using Polaris.Repositories;
+using System.Text.Json;
 
 namespace Polaris.Controllers
 {
@@ -15,23 +17,20 @@ namespace Polaris.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IRepository _repository;
+        private readonly IExternalAPI _xuperauthService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IRepository repository)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IRepository repository, IExternalAPI xuperauthService)
         {
             _logger = logger;
             _repository = repository;
+            _xuperauthService = xuperauthService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = await _xuperauthService.GetSubscriptionPlansAsync();
+            return StatusCode(StatusCodes.Status201Created, result);
         }
 
         [HttpPost(Name = "Login")]

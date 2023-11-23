@@ -22,7 +22,6 @@ namespace Polaris.Extensions
             services.AddControllers();
             services.AddResponseCaching();
             services.AddMemoryCache();
-            services.AddSingleton<IExternalAPI, XuperAuthService>();
             services.AddHttpClient();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();

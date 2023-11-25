@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Polaris.APIKeyAuthentication.Custom.Attributes;
 using Polaris.Entities;
 using Polaris.External.API;
 using Polaris.Repositories;
@@ -19,6 +20,7 @@ namespace Polaris.Controllers
         private readonly IRepository _repository;
         private readonly IExternalAPI _xuperauthService;
 
+ 
         public WeatherForecastController(ILogger<WeatherForecastController> logger, IRepository repository, IExternalAPI xuperauthService)
         {
             _logger = logger;
@@ -26,6 +28,7 @@ namespace Polaris.Controllers
             _xuperauthService = xuperauthService;
         }
 
+        [ApiKey]
         [HttpGet(Name = "GetWeatherForecast")]
         public async Task<IActionResult> Get()
         {

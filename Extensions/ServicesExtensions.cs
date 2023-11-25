@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Polaris.APIKeyAuthentication.Filters;
 using Polaris.Entities;
 using Polaris.External.API;
 using Polaris.Repositories;
@@ -23,6 +24,7 @@ namespace Polaris.Extensions
             services.AddResponseCaching();
             services.AddMemoryCache();
             services.AddHttpClient();
+            services.AddSingleton<ApiKeyAuthorizationFilter>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();

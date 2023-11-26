@@ -28,6 +28,7 @@ namespace Polaris.Controllers
             _xuperauthService = xuperauthService;
         }
 
+        [Auth]
         [ApiKey]
         [HttpGet(Name = "GetWeatherForecast")]
         public async Task<IActionResult> Get()

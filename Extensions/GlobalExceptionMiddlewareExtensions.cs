@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Entities.ErrorModel;
 using Polaris.Exceptions.Base;
+using System.Text.Json;
 
 namespace Polaris.Extensions;
 
@@ -28,11 +29,10 @@ public static class GlobalExceptionMiddlewareExtensions
 						_ => StatusCodes.Status500InternalServerError
 					};
 
-					await context.Response.WriteAsync(new ErrorDetails()
-					{
-						StatusCode = context.Response.StatusCode,
-						Message = contextFeature.Error.Message,
-					}.ToString());
+					var errorDetails = new { StatusCode = context.Response.StatusCode, Message = contextFeature.Error.Message };
+
+					await context.Response.WriteAsync(JsonSerializer.Serialize(errorDetails));
+
 				}
 			});
 		});

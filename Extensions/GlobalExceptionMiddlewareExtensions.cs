@@ -29,10 +29,15 @@ public static class GlobalExceptionMiddlewareExtensions
 						_ => StatusCodes.Status500InternalServerError
 					};
 
+					// Creating an anonymous type/object and returning a Json serialized of the type.
 					var errorDetails = new { StatusCode = context.Response.StatusCode, Message = contextFeature.Error.Message };
-
 					await context.Response.WriteAsync(JsonSerializer.Serialize(errorDetails));
 
+					// Creating and returning a object initialized class
+					//await context.Response.WriteAsync(new ErrorDetails{
+					//	StatusCode = context.Response.StatusCode,
+					//	Message = contextFeature.Error.Message,
+					//}.ToString());
 				}
 			});
 		});

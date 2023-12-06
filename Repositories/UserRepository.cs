@@ -1,5 +1,9 @@
-﻿using Polaris.Entities;
+﻿using Ardalis.GuardClauses;
+using Polaris.Entities;
 using Polaris.Exceptions;
+using Polaris.Extensions;
+using Polaris.Extensions.Guards;
+using Polaris.Shared;
 
 namespace Polaris.Repositories
 {
@@ -13,9 +17,14 @@ namespace Polaris.Repositories
 
         public async Task<Employee> AddEmployee(Employee employee)
         {
+            //Use Guards
+            Protect.Against.NullOrEmpty(employee.Name);
+            Ensure.NotNullOrContainWhiteSpace(employee.Name);
+ 
             await _context.Employees.AddAsync(employee);
             await _context.SaveChangesAsync();
-            throw new CompanyNotFoundException("The company with name Visrand is not found"); 
+            return employee;
+            //throw new CompanyNotFoundException("The company with name Visrand is not found"); 
         }
 
     }

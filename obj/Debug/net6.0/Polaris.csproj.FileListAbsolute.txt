@@ -40,3 +40,4 @@ C:\Users\Davies\Documents\my-project\C#\ASP.NET CORE\Polaris\bin\Debug\net6.0\Mi
 C:\Users\Davies\Documents\my-project\C#\ASP.NET CORE\Polaris\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Davies\Documents\my-project\C#\ASP.NET CORE\Polaris\bin\Debug\net6.0\Npgsql.dll
 C:\Users\Davies\Documents\my-project\C#\ASP.NET CORE\Polaris\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Davies\Documents\my-project\C#\ASP.NET CORE\Polaris\bin\Debug\net6.0\Ardalis.GuardClauses.dll

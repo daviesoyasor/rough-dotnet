@@ -41,6 +41,10 @@ namespace Polaris.Controllers
         public async Task<IActionResult> Login(Employee employee)
         {
 
+            if (!ModelState.IsValid)
+            {
+                throw new Exception("Not valid");
+            }
                 var result = await _repository.AddEmployee(employee);
                 return Ok(result); 
         }

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Polaris/1.0.0": {
         "dependencies": {
+          "Ardalis.GuardClauses": "4.2.0",
           "Microsoft.EntityFrameworkCore": "6.0.25",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.25",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.22",
@@ -15,6 +16,14 @@
         },
         "runtime": {
           "Polaris.dll": {}
+        }
+      },
+      "Ardalis.GuardClauses/4.2.0": {
+        "runtime": {
+          "lib/netstandard2.1/Ardalis.GuardClauses.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -235,6 +244,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Ardalis.GuardClauses/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2mDznNQkPRNpTVGrThEVhBTtxBUsCMobLnfOXnhehznwIEDjT0PG+1cedYzVhHHPfzU1OGc/2ubEkFAyoBi4LQ==",
+      "path": "ardalis.guardclauses/4.2.0",
+      "hashPath": "ardalis.guardclauses.4.2.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

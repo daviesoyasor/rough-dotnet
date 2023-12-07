@@ -18,7 +18,16 @@ namespace Polaris.Extensions
         {
             // Add services to the container.
             services.AddScoped<IRepository, UserRepository>();
+
+
+            // NOTE: you can register your service, by specifying an interface to depend on and the concrete class that implements that interface
+            // which means that when the interface is used as a type for a variable anywhere,
+            // the application will inject the appropriate instance of the concrete class specified when it was registered
             services.AddScoped<IExternalAPI, XuperAuthService>();
+
+            // OR: you can register the service with only the concrete implementation without specifying an interface
+            // this means that the application will inject an instance of the concrete class, anytime the concrete class itself is used as a type for another variable
+            services.AddScoped<XuperAuthService>();
             
             services.AddControllers();
             services.AddResponseCaching();

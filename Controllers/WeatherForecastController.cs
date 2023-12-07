@@ -37,6 +37,13 @@ namespace Polaris.Controllers
             return StatusCode(StatusCodes.Status201Created, result);
         }
 
+        [HttpGet, Route("GetXuperauthplans")]
+        public async Task<IActionResult> GetSubscriptionPlans()
+        {
+            var result = await _xuperauthService.GetSubscriptionPlansAsync();
+            return StatusCode(StatusCodes.Status201Created, result);
+        }
+
         [HttpPost(Name = "Login")]
         public async Task<IActionResult> Login(Employee employee)
         {

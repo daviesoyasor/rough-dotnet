@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hangfire;
+using Hangfire.PostgreSql;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Polaris.APIKeyAuthentication.Filters;
 using Polaris.Entities;
 using Polaris.External.API;
@@ -14,7 +17,7 @@ namespace Polaris.Extensions
             return services;
         }
 
-        public static void ConfigureApplicationServices(this IServiceCollection services)
+        public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {
             // Add services to the container.
             services.AddScoped<IRepository, UserRepository>();
@@ -37,6 +40,17 @@ namespace Polaris.Extensions
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            return services;
+        }
+
+        public static IServiceCollection ConfigureHangfireServices (this IServiceCollection services, IConfiguration configuration )
+        {
+            services.AddHangfire(x =>
+                 x.UsePostgreSqlStorage(configuration.GetConnectionString("hangfireConnection")));
+
+            services.AddHangfireServer(); // responsible for actually starting the hangfire server that will execute the background jobs
+
+            return services;
         }
     }
 }

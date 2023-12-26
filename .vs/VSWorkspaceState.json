@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Controllers",
+    "\\Extensions"
   ],
   "SelectedNode": "\\Polaris.sln",
   "PreviewInSolutionExplorer": false

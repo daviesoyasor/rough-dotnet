@@ -7,10 +7,12 @@ namespace Polaris
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-      
+
             builder.Services
                 .ConfigureSqlContext(builder.Configuration)
+                .ConfigureHangfireServices(builder.Configuration)
                 .ConfigureApplicationServices();
+
  
             var app = builder.Build();
             app

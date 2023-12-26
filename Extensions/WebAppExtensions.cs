@@ -1,4 +1,6 @@
-﻿namespace Polaris.Extensions
+﻿using Hangfire;
+
+namespace Polaris.Extensions
 {
     public static class WebAppExtensions
     {
@@ -10,11 +12,14 @@
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseHangfireDashboard();
 
             app.UseAuthorization();
 
 
             app.MapControllers();
+
+            
 
             return app;
         }

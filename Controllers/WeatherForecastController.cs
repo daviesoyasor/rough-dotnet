@@ -1,3 +1,4 @@
+using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using Polaris.APIKeyAuthentication.Custom.Attributes;
 using Polaris.Entities;
@@ -40,6 +41,9 @@ namespace Polaris.Controllers
         [HttpGet, Route("GetXuperauthplans")]
         public async Task<IActionResult> GetSubscriptionPlans()
         {
+            BackgroundJob.Enqueue(() => Console.WriteLine("This is a hangfire fire and forget"));
+            BackgroundJob.Schedule(() => Console.WriteLine("Hangfire to run after 3 minutes"), TimeSpan.FromMinutes(3));
+            RecurringJob.AddOrUpdate(() => Console.WriteLine("An Hangfire program that runs every 30 minutes"), Cron.Minutely);
             var result = await _xuperauthService.GetSubscriptionPlansAsync();
             return StatusCode(StatusCodes.Status201Created, result);
         }

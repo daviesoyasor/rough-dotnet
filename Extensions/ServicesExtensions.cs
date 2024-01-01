@@ -6,6 +6,7 @@ using Polaris.APIKeyAuthentication.Filters;
 using Polaris.Entities;
 using Polaris.External.API;
 using Polaris.Repositories;
+using Polaris.Service.Kafka;
 
 namespace Polaris.Extensions
 {
@@ -49,6 +50,14 @@ namespace Polaris.Extensions
                  x.UsePostgreSqlStorage(configuration.GetConnectionString("hangfireConnection")));
 
             services.AddHangfireServer(); // responsible for actually starting the hangfire server that will execute the background jobs
+
+            return services;
+        }
+
+        public static IServiceCollection ConfigureKafkaServices(this IServiceCollection services)
+        {
+            services.AddSingleton<KafkaProducer>();
+            services.AddHostedService<KafkaConsumer>();
 
             return services;
         }

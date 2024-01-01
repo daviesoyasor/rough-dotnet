@@ -4,14 +4,14 @@
     "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj": {
+    "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\Polaris.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj",
-        "projectName": "Polaris",
-        "projectPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj",
+        "projectUniqueName": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\Polaris.Service.csproj",
+        "projectName": "Polaris.Service",
+        "projectPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\Polaris.Service.csproj",
         "packagesPath": "C:\\Users\\Davies\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\obj\\",
+        "outputPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Davies\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,90 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj",
+        "projectName": "Polaris",
+        "projectPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\Polaris.csproj",
+        "packagesPath": "C:\\Users\\Davies\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Davies\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\Polaris.Service.csproj": {
+                "projectPath": "C:\\Users\\Davies\\Documents\\my-project\\C#\\ASP.NET CORE\\Polaris.Service\\Polaris.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
             "Ardalis.GuardClauses": {
               "target": "Package",
               "version": "[4.2.0, )"
+            },
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "Hangfire.AspNetCore": {
               "target": "Package",
@@ -69,6 +150,22 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.22, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog.Sinks.Elasticsearch": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Serilog.Sinks.Seq": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
